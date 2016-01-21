@@ -68,7 +68,7 @@ ci_mean_p_2se <- function(se = NULL, mean, uci=NULL, lci=NULL, ulevel){
   se
 }
 
-se_est <- function(se = NULL, mean = NULL, sd = NULL, uci = NULL, lci = NULL, level = NULL, ulevel = NULL, rep = FALSE){
+se_est <- function(se = NULL, mean = NULL, sd = NULL, uci = NULL, lci = NULL, level = NULL, ulevel = NULL){
   n <- max(length(se), length(mean), length(sd), length(uci), length(lci), length(level), length(ulevel))
   for(i in c("se", "mean", "sd", "uci", "lci", "level", "ulevel")){
     if(eval(parse(text = paste("is.null(", i, ")")))) {
