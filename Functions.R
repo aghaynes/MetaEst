@@ -1,6 +1,6 @@
 # FUNCTIONS ----
 # SD
-se_n_2sd <- function(sd, se, n){
+se_n_2sd <- function(sd = NULL, se, n){
   if(is.null(sd)) sd <- rep(NA, length(se))
   i <- is.na(sd) & !(is.na(se) & is.na(n))
   sd[i] <- (se*sqrt(n))[i]
@@ -33,20 +33,20 @@ sdchange <- function(sdchange = NULL, sd1 = NULL, sd2 = NULL, sdpooled = NULL, r
 
 
 # SE
-mean_t_2se <- function(se, mean, t){
+mean_t_2se <- function(se = NULL, mean, t){
   if(is.null(se)) se <- rep(NA, length(mean))
   i <- is.na(se) & !(is.na(mean) & is.na(t))
   se[i] <- (mean/t)[i]
   abs(se)
 }
-sd_n_2se <- function(se, sd, n){
+sd_n_2se <- function(se = NULL, sd, n){
   if(is.null(se)) se <- rep(NA, length(sd))
   
   i <- is.na(se) & !(is.na(sd) & is.na(n))
   se[i] <- (sd/sqrt(n))[i]
   se
 }
-uci_lci_p_2se <- function(se, uci, lci, level){
+uci_lci_p_2se <- function(se = NULL, uci, lci, level){
   if(is.null(se)) se <- rep(NA, length(uci))
   
   i <- is.na(se) & !(is.na(uci) & is.na(lci) & is.na(level))
